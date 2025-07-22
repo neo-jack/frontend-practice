@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简历</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9em;
+        }
+
+        .contact-item i {
+            width: 16px;
+            text-align: center;
+        }
+
+        .main-content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            color: #667eea;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #764ba2;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .experience-item, .education-item, .project-item {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .experience-item:last-child,
+        .education-item:last-child,
+        .project-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .item-title {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        .item-company {
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        .item-date {
+            color: #999;
+            font-size: 0.9em;
+            white-space: nowrap;
+        }
+
+        .item-description {
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .item-description ul {
+            margin-left: 20px;
+            margin-top: 8px;
+        }
+
+        .item-description li {
+            margin-bottom: 5px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background-color: #f0f2ff;
+            color: #667eea;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid #e0e4ff;
+        }
+
+        .personal-info p {
+            margin-bottom: 8px;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 0;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .main-content {
+                padding: 30px 20px;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .item-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .item-date {
+                margin-top: 5px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部个人信息 -->
+        <header class="header">
+            <h1>蓝XX</h1>
+            <p class="subtitle">前端开发工程师</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i>📧</i>
+                    <span>1339194065@qq.com</span>
+                </div>
+                <div class="contact-item">
+                    <i>📱</i>
+                    <span>1989682xxxx</span>
+                </div>
+                <div class="contact-item">
+                    <i>🏠</i>
+                    <span>广州市番禺区</span>
+                </div>
+                <div class="contact-item">
+                    <i>🔗</i>
+                    <span>github.com/neo-jack</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="two-column">
+                <!-- 左列：主要内容 -->
+                <div class="left-column">
+                    <!-- 个人简介 -->
+                    <section class="section">
+                        <h2 class="section-title">个人简介</h2>
+                        <p>具有0年前端开发经验，了解React、Vue等主流前端框架。善于学习新技术，具备良好的团队协作能力和问题解决能力。</p>
+                    </section>
+
+                    <!-- 工作经验 -->
+                    <section class="section">
+                        <h2 class="section-title">校内经历</h2>
+                        
+                        <div class="experience-item">
+                            <div class="item-header">
+                                <div>
+                                    <div class="item-title">RoboMaster机甲大师赛参赛队员</div>
+                                    <div class="item-company">校机器人竞技团队</div>
+                                </div>
+                                <div class="item-date">2023.03 - 2024.08</div>
+                            </div>
+                            <div class="item-description">
+                                <p>作为核心队员参与RoboMaster全国大学生机器人大赛，负责机器人控制系统开发和调试。</p>
+                                <ul>
+                                    <li>设计并实现机器人自动瞄准系统，提升射击精度40%</li>
+                                    <li>开发基于OpenCV的视觉识别算法，实现敌方机器人实时检测</li>
+                                    <li>优化底盘控制算法，提升机器人移动稳定性和响应速度</li>
+                                    <li>参与团队协作，获得华南赛区二等奖</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="experience-item">
+                            <div class="item-header">
+                                <div>
+                                    <div class="item-title">挑战杯全国大学生创业计划竞赛参赛者</div>
+                                    <div class="item-company">校创新创业团队</div>
+                                </div>
+                                <div class="item-date">2022.09 - 2023.05</div>
+                            </div>
+                            <div class="item-description">
+                                <p>作为技术负责人参与挑战杯创业竞赛，开发智能数据管理平台项目。</p>
+                                <ul>
+                                    <li>设计并实现基于React的数据可视化管理系统</li>
+                                    <li>开发配套的移动端H5应用，实现远程监控和数据分析功能</li>
+                                    <li>负责前端技术架构设计和核心组件开发</li>
+                                    <li>获得省级三等奖，项目具有良好的商业化前景</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 项目经验 -->
+                    <section class="section">
+                        <h2 class="section-title">项目经验</h2>
+                        
+                        <div class="project-item">
+                            <div class="item-header">
+                                <div>
+                                    <div class="item-title">RoboMaster步兵机器人控制系统</div>
+                                    <div class="item-company">C++ + OpenCV + ROS</div>
+                                </div>
+                                <div class="item-date">2023.03 - 2024.06</div>
+                            </div>
+                            <div class="item-description">
+                                <p>为RoboMaster比赛开发的步兵机器人控制系统，包含视觉识别、自动瞄准、路径规划等核心功能。</p>
+                                <ul>
+                                    <li>实现基于深度学习的敌方装甲板检测算法，识别准确率达95%</li>
+                                    <li>开发自适应PID控制器，实现精确的云台控制和自动瞄准</li>
+                                    <li>设计模块化的软件架构，提高代码可维护性和可扩展性</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="project-item">
+                            <div class="item-header">
+                                <div>
+                                    <div class="item-title">挑战杯智能数据管理平台</div>
+                                    <div class="item-company">React + Node.js + MongoDB</div>
+                                </div>
+                                <div class="item-date">2022.10 - 2023.04</div>
+                            </div>
+                            <div class="item-description">
+                                <p>面向企业的智能数据管理平台，实现数据采集、分析和可视化功能。</p>
+                                <ul>
+                                    <li>设计基于React的响应式前端界面，支持多维度数据展示和交互</li>
+                                    <li>开发Node.js后端API，实现实时数据处理和异常预警机制</li>
+                                    <li>构建移动端H5应用，提供直观的数据可视化和远程管理界面</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- 右列：辅助信息 -->
+                <div class="right-column">
+                    <!-- 技能专长 -->
+                    <section class="section">
+                        <h2 class="section-title">技能专长</h2>
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <h4>前端技术</h4>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">HTML5</span>
+                                    <span class="skill-tag">CSS3</span>
+                                    <span class="skill-tag">JavaScript</span>
+                                    <span class="skill-tag">TypeScript</span>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-category">
+                                <h4>框架/库</h4>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">React</span>
+                                    <span class="skill-tag">Vue.js</span>
+                                    <span class="skill-tag">Ant Design</span>
+                                    <span class="skill-tag">Element UI</span>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-category">
+                                <h4>工具/其他</h4>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">Git</span>
+                                    <span class="skill-tag">Webpack</span>
+                                    <span class="skill-tag">Node.js</span>
+                                    <span class="skill-tag">微信小程序</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 教育背景 -->
+                    <section class="section">
+                        <h2 class="section-title">教育背景</h2>
+                        <div class="education-item">
+                            <div class="item-header">
+                                <div>
+                                    <div class="item-title">计算机科学与技术</div>
+                                    <div class="item-company">五邑大学</div>
+                                </div>
+                                <div class="item-date">2017.09 - 2021.06</div>
+                            </div>
+                            <div class="item-description">
+                                <p>本科 | 主修课程：数据结构、算法设计、Web开发、数据库原理等</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 个人信息 -->
+                    <section class="section">
+                        <h2 class="section-title">个人信息</h2>
+                        <div class="personal-info">
+                            <p><strong>年龄：</strong> 22岁</p>
+                            <p><strong>工作年限：</strong> 0年实习</p>
+                            <p><strong>工作状态：</strong> 在职</p>
+                        </div>
+                    </section>
+
+                    <!-- 获奖荣誉 -->
+                    <section class="section">
+                        <h2 class="section-title">获奖荣誉</h2>
+                        <div class="personal-info">
+                            <p>• 国家二等奖</p>
+                            <p>• 大学期间获得奖学金</p>
+                            <p>• 校内2等奖</p>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
